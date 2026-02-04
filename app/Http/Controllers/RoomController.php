@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class gerant extends Controller
+class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('gerant.index');
-    }
-    public function add(){
-        return view('gerant.add');
+        return view('room.index');
     }
 
     /**
@@ -22,7 +19,7 @@ class gerant extends Controller
      */
     public function create()
     {
-        //
+        return view('room.add');
     }
 
     /**
@@ -30,7 +27,7 @@ class gerant extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
