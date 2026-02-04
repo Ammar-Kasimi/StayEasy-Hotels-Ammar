@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('capacity');
             $table->integer('name');
             $table->float('price');
+            $table->enum('status', ['available', 'occupied', 'maintenance']);
             $table->foreignId('tag_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->foreignId('proprety_id')->constrained();
