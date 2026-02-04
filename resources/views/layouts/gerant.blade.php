@@ -141,6 +141,9 @@
                 <a href="#" class="nav-link"><i class="fa-solid fa-house me-3"></i>Overview</a>
             </li>
             <li class="nav-item">
+                <a href=" /room/hotel" class="nav-link"><i class="fa-solid fa-house me-3"></i>hotel management</a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link active"><i class="fa-solid fa-bed me-3"></i>Rooms</a>
             </li>
             <li class="nav-item">
