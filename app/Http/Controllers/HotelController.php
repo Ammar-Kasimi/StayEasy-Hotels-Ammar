@@ -48,8 +48,8 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-
-        return view('hotel.edit', compact('hotels'));
+        
+        return view('hotel.edit', compact('hotel'));
     }
 
     /**
@@ -57,11 +57,11 @@ class HotelController extends Controller
      */
     public function update(Request $request,  Hotel $hotel)
     {
-        // $validated = $request->validate(['content=>required|string']);
-        // $validated['completed'] = $request->has('completed');
+        $validated = $request->validate(['name'=>'required|string']);
+        $validated['completed'] = $request->has('completed');
 
-        // $hotel->update($validated);
-        // return redirect()->route('hotel.index');
+        $hotel->update($validated);
+        return redirect()->route('hotel.index');
     }
 
     /**
