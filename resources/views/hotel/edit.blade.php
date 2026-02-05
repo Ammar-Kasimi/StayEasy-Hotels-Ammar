@@ -1,4 +1,5 @@
 @extends('layouts.gerant')
 @section('main')
-<h2>hello</h2>
+<h2>Edit Page</h2>
+
 @endsection
