@@ -24,6 +24,10 @@
                 <option>Suite</option>
             </select> -->
         </div>
+        <div class="mb-3">
+            <label class="form-label">Hotel image(url)</label>
+            <input type="text" name='img' class="form-control" placeholder="i-mage">
+        </div>
 
 
 
@@ -58,11 +62,25 @@
                         </div>
                     </td>
                     <td><span class="badge bg-light text-dark fw-medium">{{ $hotel->address }}</span></td>
-                    <td><span class="fw-bold text-primary">{{$hotel->status}}</span></td>
+                    <!-- <td><span class="fw-bold text-primary">{{$hotel->status}}</span></td> -->
                     <td>
-                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2">
-                            <span class="status-dot bg-success"></span>Available
-                        </span>
+                        @switch( $hotel->status)
+                        @case('pending') 
+                        <span class="badge bg-warning-subtle text-warning border border-warning-subtle px-2">
+                        <span class="status-dot bg-warning"></span>Pending</span>
+                        @break
+                        @case('denied') 
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2">
+                        <span class="status-dot bg-danger"></span>Denied</span>
+                        @break
+                        @case('active') 
+                      <span class="badge bg-success-subtle text-success border border-success-subtle px-2">
+
+                        <span class="status-dot bg-success"></span>Active</span>
+                        @break
+                        @endswitch
+
+                        
                     </td>
                     <td class="text-end pe-4">
                         <a class="btn btn-light btn-action text-warning border" title="Edit">

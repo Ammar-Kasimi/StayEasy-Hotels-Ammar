@@ -29,8 +29,7 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->validate(['name'=>'string']));
-        Hotel::create($request->validate(['name'=>'string','address'=>'','statis'=>'string']));
+        Hotel::create($request->validate(['name'=>'string','address'=>'','status'=>'string','img'=>'']));
         return redirect()->route('hotel.index');
     
         }
