@@ -1,8 +1,7 @@
 @extends('layouts.gerant')
 @section('main')
 
-@endsection@extends('layouts.gerant')
-@section('main')
+
 
 
 <div class="card-body">
@@ -39,7 +38,7 @@
         <table class="table table-hover align-middle mb-0">
             <thead>
                 <tr>
-                    <th class="ps-4">Hotel mame</th>
+                    <th class="ps-4">Hotel name</th>
                     <th>address</th>
                     
                     <th>Status</th>
@@ -47,18 +46,19 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($hotels as $hotel )
                 <tr>
                     <td class="ps-4">
                         <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=100&q=80" class="room-img">
+                            <img src={{ $hotel->img }} class="room-img">
                             <div>
-                                <div class="fw-bold">Executive Suite 101</div>
-                                <div class="text-muted small">Floor 1 • Ocean View</div>
+                                <div class="fw-bold">{{$hotel->name}}</div>
+                                <!-- <div class="text-muted small">Floor 1 • Ocean View</div> -->
                             </div>
                         </div>
                     </td>
-                    <td><span class="badge bg-light text-dark fw-medium">Deluxe</span></td>
-                    <td><span class="fw-bold text-primary">$120.00</span></td>
+                    <td><span class="badge bg-light text-dark fw-medium">{{ $hotel->address }}</span></td>
+                    <td><span class="fw-bold text-primary">{{$hotel->status}}</span></td>
                     <td>
                         <span class="badge bg-success-subtle text-success border border-success-subtle px-2">
                             <span class="status-dot bg-success"></span>Available
@@ -73,6 +73,8 @@
                         </a>
                     </td>
                 </tr>
+                @endforeach
+                
         </table>
     </div>
     @endsection
