@@ -141,6 +141,9 @@
                 <a href="#" class="nav-link"><i class="fa-solid fa-house me-3"></i>Overview</a>
             </li>
             <li class="nav-item">
+                <a href="" class="nav-link"><i class="fa-solid fa-house me-3"></i>Admin</a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('hotel.index') }}" class="nav-link"><i class="fa-solid fa-house me-3"></i>hotel management</a>
             </li>
             <li class="nav-item">

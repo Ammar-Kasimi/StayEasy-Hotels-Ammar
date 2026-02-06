@@ -6,20 +6,20 @@
     <p class="card-description">
       
     </p>
-    <form action={{ route('hotel.update') }} class="forms-sample">
+    <form action={{ route('hotel.update',$hotel)}} method= 'POST' id="exampleInputUsername1" placeholder="Username">
         @csrf
         @method('PUT')
         <div class="form-group">
             <label for="exampleInputUsername1">Hotel name</label>
-            <input type="text" value={{ $hotel->name }} class="form-control" id="exampleInputUsername1" placeholder="Username">
+            <input type="text" name='name' value={{ $hotel->name }} class="form-control" id="exampleInputUsername1" placeholder="Username">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address(city)</label>
-            <input type="text" value={{ $hotel->address }} class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <label for="exampleInputEmail1">address(city)</label>
+            <input type="text" name='address' value={{ $hotel->address }} class="form-control" id="exampleInputEmail1" placeholder="address">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Hotel main image(url)</label>
-            <input type="text" value={{ $hotel->img }} class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="text" name='img' value={{ $hotel->img }} class="form-control" id="exampleInputPassword1" placeholder="Password">;
         </div>
         <!-- <div class="form-group">
             <label for="exampleInputConfirmPassword1">Confirm Password</label>

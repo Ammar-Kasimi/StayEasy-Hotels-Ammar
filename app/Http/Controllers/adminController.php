@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Hotel;
 
-class HotelController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class HotelController extends Controller
     {
         $hotels = Hotel::All();
         // dd($hotels);
-        return view('hotel.index', compact('hotels'));
+        return view('admin/hotel.index', compact('hotels'));
     }
 
     /**
@@ -22,7 +22,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        // return redirect()->route('hotel.create');
+        // return redirect()->route('admin/hotel.create');
     }
 
     /**
@@ -31,7 +31,7 @@ class HotelController extends Controller
     public function store(Request $request)
     {
         Hotel::create($request->validate(['name'=>'string','address'=>'','status'=>'string','img'=>'']));
-        return redirect()->route('hotel.index');
+        return redirect()->route('admin/hotel.index');
     
         }
 
@@ -41,7 +41,7 @@ class HotelController extends Controller
     public function show($id)
     {
         // $hotel = Hotel::find($id);
-        // return view('hotel.show', compact('hotels'));
+        // return view('admin/hotel.show', compact('hotels'));
     }
 
     /**
@@ -50,7 +50,7 @@ class HotelController extends Controller
     public function edit(Hotel $hotel)
     {
         
-        return view('hotel.edit', compact('hotel'));
+        return view('admin/hotel.edit', compact('hotel'));
     }
 
     /**
@@ -62,7 +62,7 @@ class HotelController extends Controller
         $validated['completed'] = $request->has('completed');
 
         $hotel->update($validated);
-        return redirect()->route('hotel.index');
+        return redirect()->route('admin/hotel.index');
     }
 
     /**
@@ -71,6 +71,6 @@ class HotelController extends Controller
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
-        return redirect()->route('hotel.index');
+        return redirect()->route('admin/hotel.index');
     }
 }
