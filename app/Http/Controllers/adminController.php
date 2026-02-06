@@ -13,6 +13,7 @@ class AdminController extends Controller
     public function index()
     {
         $hotels = Hotel::All();
+
         // dd($hotels);
         return view('admin/hotel.index', compact('hotels'));
     }
@@ -71,6 +72,8 @@ class AdminController extends Controller
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
-        return redirect()->route('admin/hotel.index');
+     
+        return $this->index();
+        //return redirect()->route('admin.hotel.index');
     }
 }
