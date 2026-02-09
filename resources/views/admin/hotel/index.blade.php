@@ -30,13 +30,15 @@
                 <td>
                     @switch( $hotel->status)
                     @case('pending')
-                    <form action={{ route('admin.hotel.update',$hotel) }} class="" method="POST">
+                    <form action={{ route('admin.hotel.updateStatus',$hotel) }} class="" method="POST">
                         @csrf
-                        @method('patch')
+                   
+                        
                     <span class="badge bg-warning  text-warning border border-warning-subtle px-2">
                         <!-- <span class="status-dot bg-warning"></span>Pending</span> -->
-                    <select name='status'class=" status_select " aria-label="Select an option">
+                    <select name='status' class=" status_select " aria-label="Select an option" onchange="this.form.submit()">
                         <!-- <option selected>Open this select menu</option> -->
+                          
                         <option value="1" selected>Pending</option>
                         <option value="2">active</option>
                         <option value="3">denied</option>
@@ -45,6 +47,9 @@
                     </form>
                     @break
                     @case('denied')
+                    <form action={{ route('admin.hotel.updateStatus',$hotel) }} class="" method="POST">
+                        @csrf
+                   
                     <span class="badge bg-danger text-danger border border-danger-subtle px-2">
                         <!-- <span class="status-dot bg-danger"></span>Denied</span> -->
                          <select class="  " aria-label="Select an option">
@@ -53,8 +58,12 @@
                         <option value="2">active</option>
                     </select>
                     </span>
+                    </form>
                     @break
                     @case('active')
+                    <form action={{ route('admin.hotel.updateStatus',$hotel) }} class="" method="POST">
+                        @csrf
+                   
                     <span class="badge bg-success text-success border border-success-subtle px-2">
 
                         <!-- <span class="status-dot bg-success"></span>Active</span> -->
@@ -64,6 +73,7 @@
                         <option value="2">denied</option>
                     </select>
                     </span>
+                    </form>
                     @break
                     @endswitch
 

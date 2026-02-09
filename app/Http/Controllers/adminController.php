@@ -31,10 +31,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        Hotel::create($request->validate(['name'=>'string','address'=>'','status'=>'string','img'=>'']));
+        Hotel::create($request->validate(['name' => 'string', 'address' => '', 'status' => 'string', 'img' => '']));
         return redirect()->route('admin.hotel.index');
-    
-        }
+    }
 
     /**
      * Display the specified resource.
@@ -50,7 +49,7 @@ class AdminController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        
+
         return view('admin.hotel.edit', compact('hotel'));
     }
 
@@ -59,20 +58,30 @@ class AdminController extends Controller
      */
     public function update(Request $request,  Hotel $hotel)
     {
-        $validated = $request->validate(['name'=>'required|string','address'=>['required','string'],'img'=> 'required']);
+        
+        $validated = $request->validate(['name' => 'required|string', 'address' => ['required', 'string'], 'img' => 'required', 'status' => 'string']);
+        $validated['completed'] = $request->has('completed');
+
+        $hotel->update($validated);
+
+        return redirect()->route('admin.hotel.index');
+    }
+    public function updateStatus(Request $request,Hotel $hotel)
+    {
+       
+        $validated = $request->validate(rules: ['status' => 'required']);
         $validated['completed'] = $request->has('completed');
 
         $hotel->update($validated);
         return redirect()->route('admin.hotel.index');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
-     
+
         return redirect()->route('admin.hotel.index');
         //return redirect()->route('admin.hotel.index');
     }

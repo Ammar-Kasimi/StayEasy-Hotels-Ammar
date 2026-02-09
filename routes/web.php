@@ -18,4 +18,6 @@ Route::resource( 'hotel', HotelController::class);
 Route::resource( 'admin/hotel', AdminController::class)->names('admin.hotel');
 
 Route::resource('room', RoomController::class);
+
+Route::post('/admin/hotel/{hotel}/status',[AdminController::class,'updateStatus'])->name('admin.hotel.updateStatus');
 // Route::get('hotel', [HotelController::class,'index']);
