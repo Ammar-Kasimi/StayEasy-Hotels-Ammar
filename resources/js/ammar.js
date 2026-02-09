@@ -1,0 +1,1 @@
+document.querySelectorAll('.status_select').forEach(e=>{e.addEventListener('change',e.target.closest('form').submit());})

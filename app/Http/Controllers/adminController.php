@@ -15,7 +15,7 @@ class AdminController extends Controller
         $hotels = Hotel::All();
 
         // dd($hotels);
-        return view('admin/hotel.index', compact('hotels'));
+        return view('admin.hotel.index', compact('hotels'));
     }
 
     /**
@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        // return redirect()->route('admin/hotel.create');
+        // return redirect()->route('admin.hotel.create');
     }
 
     /**
@@ -32,7 +32,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         Hotel::create($request->validate(['name'=>'string','address'=>'','status'=>'string','img'=>'']));
-        return redirect()->route('admin/hotel.index');
+        return redirect()->route('admin.hotel.index');
     
         }
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
     public function show($id)
     {
         // $hotel = Hotel::find($id);
-        // return view('admin/hotel.show', compact('hotels'));
+        // return view('admin.hotel.show', compact('hotels'));
     }
 
     /**
@@ -51,7 +51,7 @@ class AdminController extends Controller
     public function edit(Hotel $hotel)
     {
         
-        return view('admin/hotel.edit', compact('hotel'));
+        return view('admin.hotel.edit', compact('hotel'));
     }
 
     /**
@@ -63,7 +63,7 @@ class AdminController extends Controller
         $validated['completed'] = $request->has('completed');
 
         $hotel->update($validated);
-        return redirect()->route('admin/hotel.index');
+        return redirect()->route('admin.hotel.index');
     }
 
     /**
@@ -73,7 +73,7 @@ class AdminController extends Controller
     {
         $hotel->delete();
      
-        return $this->index();
+        return redirect()->route('admin.hotel.index');
         //return redirect()->route('admin.hotel.index');
     }
 }
