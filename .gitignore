@@ -22,3 +22,27 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+
+class AuthController{
+public function register(){
+$request->validate([
+'name'=>'string|required|min:4',
+'email'=> 'email|required|unique:users',
+'password'=> 'min:6|required'
+]);
+User::create([
+'name'=>$request->name,
+email=>$request->email,
+'password'=>$request->password
+]);
+$request->session()->regenerate();
+
+return redirect->route('Auth.index');
+}
+
+public function login(Request $request){
+ $request->validate([jlsjaflkjadslfjlasdfkdj])
+ 
+}
+}
