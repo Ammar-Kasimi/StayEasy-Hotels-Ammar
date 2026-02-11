@@ -60,7 +60,7 @@ class AdminController extends Controller
     {
         
         $validated = $request->validate(['name' => 'required|string', 'address' => ['required', 'string'], 'img' => 'required', 'status' => 'string']);
-        $validated['completed'] = $request->has('completed');
+        
 
         $hotel->update($validated);
 
@@ -70,7 +70,7 @@ class AdminController extends Controller
     {
        
         $validated = $request->validate(rules: ['status' => 'required']);
-        $validated['completed'] = $request->has('completed');
+      
 
         $hotel->update($validated);
         return redirect()->route('admin.hotel.index');
@@ -86,3 +86,4 @@ class AdminController extends Controller
         //return redirect()->route('admin.hotel.index');
     }
 }
+//   $validated['completed'] = $request->has('completed');

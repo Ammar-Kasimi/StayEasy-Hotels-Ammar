@@ -49,7 +49,6 @@ class ClientController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-
         return view('client.hotel.edit', compact('hotel'));
     }
 
@@ -60,17 +59,15 @@ class ClientController extends Controller
     {
         
         $validated = $request->validate(['name' => 'required|string', 'address' => ['required', 'string'], 'img' => 'required', 'status' => 'string']);
-        $validated['completed'] = $request->has('completed');
 
         $hotel->update($validated);
-
         return redirect()->route('client.hotel.index');
     }
     public function updateStatus(Request $request,Hotel $hotel)
     {
        
         $validated = $request->validate(rules: ['status' => 'required']);
-        $validated['completed'] = $request->has('completed');
+      
 
         $hotel->update($validated);
         return redirect()->route('client.hotel.index');
@@ -81,8 +78,8 @@ class ClientController extends Controller
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
-
         return redirect()->route('client.hotel.index');
         //return redirect()->route('client.hotel.index');
     }
 }
+// $validated['completed'] = $request->has('completed');

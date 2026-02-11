@@ -18,7 +18,7 @@ Route::resource( 'hotel', HotelController::class);
 //     Route::resource('hotel', HotelController::class)->names('admin.hotel');
 // });
 Route::resource( 'admin/hotel', AdminController::class)->names('admin.hotel');
-Route::resource( 'client/hotel', ClientController::class)->names('client.hotel');
+Route::resource( 'client/hotel', ClientController::class)->names('client.hotel')->except(['destroy','edit','store']);
 
 Route::resource('room', RoomController::class);
 

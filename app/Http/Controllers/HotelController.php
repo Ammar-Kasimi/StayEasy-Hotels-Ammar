@@ -59,7 +59,7 @@ class HotelController extends Controller
     public function update(Request $request,  Hotel $hotel)
     {
         $validated = $request->validate(['name'=>'required|string','address'=>['required','string'],'img'=> 'required']);
-        $validated['completed'] = $request->has('completed');
+       
 
         $hotel->update($validated);
         return redirect()->route('hotel.index');
@@ -74,3 +74,4 @@ class HotelController extends Controller
         return redirect()->route('hotel.index');
     }
 }
+//  $validated['completed'] = $request->has('completed');
